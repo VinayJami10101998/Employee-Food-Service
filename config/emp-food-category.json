@@ -1,0 +1,9 @@
+{
+	"category": [
+		{ "id": 1, "text": "Indian" },
+		{ "id": 2, "text": "Chinese" },
+		{ "id": 3, "text": "Italian" },
+		{ "id": 4, "text": "Lebanese" },
+		{ "id": 5, "text": "Japanese" }
+	]
+}

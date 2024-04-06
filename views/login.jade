@@ -1,0 +1,38 @@
+extends layout
+
+block head
+	include ./shared/head.jade
+
+
+block content
+	body.login-body
+		.container
+			form.form-signin(action='login')
+				h2.form-signin-heading Employee Asset Management
+				.login-wrap
+					.user-login-info
+						input.form-control(type='text', name='username', placeholder='Username', autofocus='', autocomplete="username", required)
+						input.form-control#password_inp(type='password', name='password', placeholder='Password', autocomplete="current-password", required)
+						
+					button.btn.btn-lg.btn-login.btn-block(type='submit') Sign in
+block foot
+	script(src='/js/lib/jquery.js')
+	script(src='/js/client.js')
+	script.
+		$(function() {
+			$('.form-signin').submit(function( event ) {
+				event.preventDefault();
+				var form = $( this );
+				var posting = $.post( form.attr('action'), form.serializeArray() );
+
+				// Put the results in a div
+				posting.done(function(data) {
+					localStorage.setItem('id', data.id);
+					localStorage.setItem('username', data.username);
+					localStorage.setItem('employeeName', data.firstName);
+					localStorage.setItem('department', data.department);
+					localStorage.setItem('role', data.role);
+					window.location = '#{repath}';
+				});
+			});
+		});

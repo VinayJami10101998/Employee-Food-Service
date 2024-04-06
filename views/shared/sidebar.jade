@@ -1,0 +1,18 @@
+aside
+	#sidebar.nav-collapse.hide-left-bar.open-left-bar
+		// sidebar menu start
+		.leftside-navigation
+			ul.sidebar-search
+				li(style="list-style:none")
+					input#at-menu-search.search(type="search" placeholder="Search.." autofocus)
+					span.searchclear.glyphicon.glyphicon-remove-circle(style="display:none")
+			ul#nav-accordion.sidebar-menu
+				+employeeMaster
+// sidebar menu end
+// sidebar end
+
+mixin employeeMaster
+	li
+		a(href='/employee', class=title=='Employee Master'?'active':undefined)
+			i.fa.fa-users
+			span Employee Master
